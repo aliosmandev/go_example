@@ -3,6 +3,7 @@ package server
 import (
 	"github.com/gofiber/fiber/v2"
 
+	user "go_starter/cmd/api/rest/routes"
 	"go_starter/internal/database"
 )
 
@@ -21,6 +22,8 @@ func New() *FiberServer {
 
 		db: database.New(),
 	}
+
+	user.Register(server.App)
 
 	return server
 }
